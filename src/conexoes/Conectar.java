@@ -56,12 +56,14 @@ public class Conectar {
     
     }
     
-    
+  /*  
     public static void main(String [] args)
     {
         Conectar conexao = new Conectar("localhost", "Fanap15042019", "root", "root");
         conexao.obterConexao();
     }
+    
+    */
     
     public String getUrl() {
         return url;

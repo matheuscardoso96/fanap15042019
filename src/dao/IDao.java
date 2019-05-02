@@ -12,9 +12,10 @@ import java.util.List;
  * @author T-Gamer
  */
 public interface IDao {
-    public void insert(Object obj);
-    public void update(Object obj);
-    public void delete(Object obj);
-    public Object select(int i);
+    public int insert(Object obj);
+    public int update(Object obj);
+    public int delete(Object obj);
+    public int getMax(String query);
+    public Object selectCodigo(int i);
     public List select();
 }

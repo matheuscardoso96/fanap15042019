@@ -9,14 +9,14 @@ package modelo;
  *
  * @author T-Gamer
  */
-public class Pais {
+public class TipoPessoa {
     private int codigo;
     private String descricao;
 
-    public Pais() {
+    public TipoPessoa() {
     }
 
-    public Pais(int codigo, String descricao) {
+    public TipoPessoa(int codigo, String descricao) {
         this.codigo = codigo;
         this.descricao = descricao;
     }
@@ -42,8 +42,6 @@ public class Pais {
     {
         return descricao;
     }
-    
-    
     
     
 }

@@ -9,14 +9,14 @@ package modelo;
  *
  * @author T-Gamer
  */
-public class Pais {
+public class TipoEndereco {
     private int codigo;
     private String descricao;
 
-    public Pais() {
+    public TipoEndereco() {
     }
 
-    public Pais(int codigo, String descricao) {
+    public TipoEndereco(int codigo, String descricao) {
         this.codigo = codigo;
         this.descricao = descricao;
     }
@@ -37,13 +37,11 @@ public class Pais {
         this.descricao = descricao;
     }
     
+    
     @Override
     public String toString()
     {
         return descricao;
     }
-    
-    
-    
     
 }

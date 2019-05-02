@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package JAlert;
+package alertaj;
 
 import javax.swing.JOptionPane;
 
@@ -15,5 +15,11 @@ public class Jop {
     public static void alerta(String msg)
     {
         JOptionPane.showMessageDialog(null, msg);
+    }
+    
+    public static int alertaOpcao(String msg)
+    {
+       int input = JOptionPane.showConfirmDialog(null, msg);
+       return input;
     }
 }

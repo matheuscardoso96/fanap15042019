@@ -9,17 +9,39 @@ package modelo;
  *
  * @author T-Gamer
  */
-public class Pais {
+public class Uf {
     private int codigo;
+    private int codigo_Pais;
     private String descricao;
+    private String sigla;
 
-    public Pais() {
+    public Uf() {
     }
 
-    public Pais(int codigo, String descricao) {
+    public Uf(int codigo, int codigo_Pais,String sigla, String descricao) {
         this.codigo = codigo;
+        this.codigo_Pais = codigo_Pais;
         this.descricao = descricao;
+        this.sigla = sigla;
     }
+
+    public int getCodigo_Pais() {
+        return codigo_Pais;
+    }
+
+    public void setCodigo_Pais(int codigo_Pais) {
+        this.codigo_Pais = codigo_Pais;
+    }
+
+    public String getSigla() {
+        return sigla;
+    }
+
+    public void setSigla(String sigla) {
+        this.sigla = sigla;
+    }
+
+
 
     public int getCodigo() {
         return codigo;
@@ -36,6 +58,7 @@ public class Pais {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+    
     
     @Override
     public String toString()
