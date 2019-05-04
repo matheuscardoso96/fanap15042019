@@ -93,7 +93,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="36" style="0"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Manter Cliente"/>
+            <Property name="text" type="java.lang.String" value="Manter Endereco"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jlLogo">
@@ -131,26 +131,24 @@
                               <EmptySpace min="-2" pref="320" max="-2" attributes="0"/>
                               <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jtfCodigo" min="-2" pref="155" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jbtBuscaCodigo" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jcbTipoPessoa" pref="166" max="32767" attributes="0"/>
-                              </Group>
-                              <Component id="jtfNome" alignment="0" max="32767" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jtfRgIe" min="-2" pref="186" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jtfOrgaoExpedidor" max="32767" attributes="0"/>
-                              </Group>
-                              <Component id="jtfSobrenome" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jtfCodigo" min="-2" pref="155" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jbtBuscaCodigo" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jcbCliente" max="32767" attributes="0"/>
                           </Group>
+                          <Component id="jtfNome" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jtfRgIe" min="-2" pref="186" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jtfOrgaoExpedidor" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="jtfSobrenome" alignment="0" max="32767" attributes="0"/>
                           <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                           <Component id="jtfReferencia" alignment="0" max="32767" attributes="0"/>
                       </Group>
@@ -245,7 +243,7 @@
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jtfCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jbtBuscaCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jcbTipoPessoa" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jcbCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jbtIncluir" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -368,17 +366,17 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Tipo Pessoa"/>
+            <Property name="text" type="java.lang.String" value="Cliente"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="jcbTipoPessoa">
+        <Component class="javax.swing.JComboBox" name="jcbCliente">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="0"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jcbTipoPessoaActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jcbClienteActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
@@ -542,19 +540,22 @@
         <Component class="javax.swing.JComboBox" name="jcbConsulta">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="5">
+              <StringArray count="8">
                 <StringItem index="0" value="Todos"/>
-                <StringItem index="1" value="F&#xed;sicos"/>
-                <StringItem index="2" value="Jur&#xed;dicos"/>
-                <StringItem index="3" value="Cpf ou Cnpj"/>
-                <StringItem index="4" value="Rg ou IE"/>
+                <StringItem index="1" value="Residencial"/>
+                <StringItem index="2" value="Comercial"/>
+                <StringItem index="3" value="Corresp&#xea;ndcia"/>
+                <StringItem index="4" value="Entrega"/>
+                <StringItem index="5" value="Recado"/>
+                <StringItem index="6" value="Outros(s)"/>
+                <StringItem index="7" value="Cliente/Cep"/>
               </StringArray>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel18">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Consultar Clientes:"/>
+            <Property name="text" type="java.lang.String" value="Consultar Endere&#xe7;os:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JToggleButton" name="jbtSair">

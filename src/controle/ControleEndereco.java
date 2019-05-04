@@ -39,10 +39,25 @@ public class ControleEndereco {
     
     }
     
+    public Object selectCodigoCliente(int chaveEstrangeira, String cep)
+    {
+        DaoEndereco edao = new DaoEndereco();
+        return edao.selectCodigoCliente(chaveEstrangeira,cep);
+    
+    }
+    
     public List select()
     {
         DaoEndereco edao = new DaoEndereco();
         List enderecos = edao.select();
+        return enderecos;
+        
+    }
+    
+        public List selectTipoEndereco(int chaveEstrangeira)
+    {
+        DaoEndereco edao = new DaoEndereco();
+        List enderecos = edao.selectTipoEndereco(chaveEstrangeira);
         return enderecos;
         
     }

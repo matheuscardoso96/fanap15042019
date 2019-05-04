@@ -11,7 +11,6 @@ import controle.ControleEndereco;
 import controle.ControleTipoEndereco;
 import controle.ControleTipoPessoa;
 import controle.ControleUf;
-import fanapUtil.MascararCampos;
 import java.util.Date;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
@@ -21,23 +20,22 @@ import modelo.TipoEndereco;
 import modelo.TipoPessoa;
 import modelo.Uf;
 
-
 /**
  *
  * @author T-Gamer
  */
-public class VisaoCliente extends javax.swing.JFrame {
+public class VisaoEndereco extends javax.swing.JFrame {
 
     private List<TipoPessoa> tipoPessoas;
     private List<TipoEndereco> tipoEnderecos;
     private List<Uf> ufs;
     private List<Cliente> clientes;
-    MascararCampos mc = new MascararCampos();
+    private List<Endereco> enderecos;
 
     /**
      * Creates new form PaisVisao
      */
-    public VisaoCliente() {
+    public VisaoEndereco() {
 
         initComponents();
         desativarBotoes();
@@ -64,7 +62,7 @@ public class VisaoCliente extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jtfNome = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jcbTipoPessoa = new javax.swing.JComboBox();
+        jcbCliente = new javax.swing.JComboBox();
         jLabel6 = new javax.swing.JLabel();
         jtfSobrenome = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
@@ -108,7 +106,7 @@ public class VisaoCliente extends javax.swing.JFrame {
         jplTitulo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel1.setFont(new java.awt.Font("Arial", 0, 36)); // NOI18N
-        jLabel1.setText("Manter Cliente");
+        jLabel1.setText("Manter Endereco");
 
         jlLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/logo_pequeno.png"))); // NOI18N
 
@@ -141,11 +139,11 @@ public class VisaoCliente extends javax.swing.JFrame {
 
         jLabel4.setText("Nome ou Razão Social");
 
-        jLabel5.setText("Tipo Pessoa");
+        jLabel5.setText("Cliente");
 
-        jcbTipoPessoa.addActionListener(new java.awt.event.ActionListener() {
+        jcbCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcbTipoPessoaActionPerformed(evt);
+                jcbClienteActionPerformed(evt);
             }
         });
 
@@ -229,9 +227,9 @@ public class VisaoCliente extends javax.swing.JFrame {
             }
         });
 
-        jcbConsulta.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Todos", "Físicos", "Jurídicos", "Cpf ou Cnpj", "Rg ou IE" }));
+        jcbConsulta.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Todos", "Residencial", "Comercial", "Correspêndcia", "Entrega", "Recado", "Outros(s)", "Cliente/Cep" }));
 
-        jLabel18.setText("Consultar Clientes:");
+        jLabel18.setText("Consultar Endereços:");
 
         jbtSair.setText("Sair");
         jbtSair.addActionListener(new java.awt.event.ActionListener() {
@@ -256,23 +254,22 @@ public class VisaoCliente extends javax.swing.JFrame {
                             .addComponent(jLabel16)
                             .addGap(320, 320, 320)
                             .addComponent(jLabel11))
-                        .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jplCamposLayout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jtfCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jbtBuscaCodigo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jcbTipoPessoa, 0, 166, Short.MAX_VALUE))
-                            .addComponent(jtfNome, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jplCamposLayout.createSequentialGroup()
-                                .addComponent(jtfRgIe, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jtfOrgaoExpedidor))
-                            .addComponent(jtfSobrenome, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGroup(jplCamposLayout.createSequentialGroup()
+                            .addComponent(jLabel2)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jtfCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jbtBuscaCodigo)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel5)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jcbCliente, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jtfNome)
+                        .addGroup(jplCamposLayout.createSequentialGroup()
+                            .addComponent(jtfRgIe, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jtfOrgaoExpedidor))
+                        .addComponent(jtfSobrenome)
                         .addComponent(jLabel17)
                         .addComponent(jtfReferencia))
                     .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -343,7 +340,7 @@ public class VisaoCliente extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(jtfCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbtBuscaCodigo)
-                    .addComponent(jcbTipoPessoa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcbCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
                     .addComponent(jbtIncluir))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -469,22 +466,21 @@ public class VisaoCliente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jcbTipoPessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbTipoPessoaActionPerformed
+    private void jcbClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbClienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jcbTipoPessoaActionPerformed
+    }//GEN-LAST:event_jcbClienteActionPerformed
 
     private void jbtBuscaCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtBuscaCodigoActionPerformed
 
-        ControleCliente cc = new ControleCliente();
-        Cliente cliente = (Cliente) cc.selectCodigo(Integer.parseInt(jtfCodigo.getText()));
-
-        popularCampos(Integer.toString(cliente.getCodigo()), cliente.getCodigoTipoPessoa(), cliente.getData(), cliente.getNomeRazaoSocial(), cliente.getSobrenomeNomeFantasia(),
-                cliente.getRgIe(), cliente.getOrgaoExpedidor(), cliente.getCpfCnpj());
-
+        //ControleCliente cc = new ControleCliente();
+        // Cliente cliente = (Cliente) cc.selectCodigo(Integer.parseInt(jtfCodigo.getText()));
+       // popularCampos(Integer.toString(cliente.getCodigo()), cliente.getCodigoTipoPessoa(), cliente.getData(), cliente.getNomeRazaoSocial(), cliente.getSobrenomeNomeFantasia(),
+        //cliente.getRgIe(), cliente.getOrgaoExpedidor(), cliente.getCpfCnpj());
+        // Cliente cliente = (Cliente) jcbCliente.getSelectedItem();
         ControleEndereco ce = new ControleEndereco();
 
-        Endereco endereco = (Endereco) ce.selectCodigoCliente(cliente.getCodigo(),jtfCep.getText());
-        popularEndereco(endereco.getCodigoTipoEndereco(), endereco.getCodigoUf(), endereco.getLogradouro(), endereco.getBairro(),
+        Endereco endereco = (Endereco) ce.selectCodigo(Integer.parseInt(jtfCodigo.getText()));
+        popularEndereco(endereco.getCodigo(), endereco.getCodigoCliente(), endereco.getCodigoTipoEndereco(), endereco.getCodigoUf(), endereco.getLogradouro(), endereco.getBairro(),
                 endereco.getCep(), endereco.getCidade(), endereco.getComplemento(), endereco.getNumero(), endereco.getReferencia());
     }//GEN-LAST:event_jbtBuscaCodigoActionPerformed
 
@@ -498,21 +494,28 @@ public class VisaoCliente extends javax.swing.JFrame {
         String opcao = (String) jcbConsulta.getSelectedItem();
         switch (opcao) {
             case "Todos":
-                todosOsClientes();
+                todosOsEnderecos();
                 break;
-            case "Cpf ou Cnpj":
-                clientePorCpfouCpnj();
+            case "Residencial":
+                tipoEndereco(1);
                 break;
-            case "Físicos":
-                carregarListaClientes();
-                fisicoOuJuridico(1);
+            case "Comercial":
+                tipoEndereco(2);
                 break;
-            case "Jurídicos":
-                carregarListaClientes();
-                fisicoOuJuridico(2);
+            case "Correspêndcia":
+                tipoEndereco(3);
                 break;
-            case "Rg ou IE":
-                clientePorRgIe();
+            case "Entrega":
+                tipoEndereco(4);
+                break;
+            case "Recado":
+                tipoEndereco(5);
+                break;
+            case "Outros(s)":
+                tipoEndereco(6);
+                break;
+            case "Cliente/Cep":
+                enderecoPorCodigoClienteCep();
                 break;
             default:
 
@@ -531,22 +534,17 @@ public class VisaoCliente extends javax.swing.JFrame {
     private void jbtAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtAlterarActionPerformed
         int opcao = Jop.alertaOpcao("Deseja realmente alterar esse registro?");
         if (opcao == 0) {
-            ControleCliente cc = new ControleCliente();
-            int chavePrimaria = 0;
-            Cliente cliente;
-            cliente = (Cliente) criarCliente();
-            cc.update(cliente);
-            chavePrimaria = cliente.getCodigo();
-            popularChave(Integer.toString(chavePrimaria));
-            
+            int index = jcbCliente.getSelectedIndex();
+            int codigoCliente = clientes.get(index).getCodigo();
+
             ControleEndereco ce = new ControleEndereco();
-            Endereco enderecoVelho = (Endereco)ce.selectCodigoCliente(chavePrimaria,jtfCep.getText());
-            Endereco enderecoNovo =(Endereco) atualizarEndereco(chavePrimaria,enderecoVelho.getCodigo());
-            ce.update(enderecoNovo);
-            popularChave(Integer.toString(chavePrimaria));
+            Endereco enderecoVelho = (Endereco) ce.selectCodigoCliente(codigoCliente, jtfCep.getText());
+            Endereco enderecoNovo = (Endereco) atualizarEndereco(codigoCliente, enderecoVelho.getCodigo());
+            int chave = ce.update(enderecoNovo);
+            popularChave(Integer.toString(chave));
         }
-        
-        
+
+
     }//GEN-LAST:event_jbtAlterarActionPerformed
 
     private void jbtExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtExcluirActionPerformed
@@ -582,12 +580,17 @@ public class VisaoCliente extends javax.swing.JFrame {
         carregarListaTipoPessoas();
         carregarListaClientes();
         ativarCamposDeTexto();
-        
+
     }//GEN-LAST:event_jbtIncluirActionPerformed
 
     private void carregarListaClientes() {
         ControleCliente cc = new ControleCliente();
         clientes = cc.select();
+    }
+
+    private void carregarListaEnderecos() {
+        ControleEndereco ce = new ControleEndereco();
+        enderecos = ce.select();
     }
 
     private void carregarListaUfs() {
@@ -609,11 +612,11 @@ public class VisaoCliente extends javax.swing.JFrame {
     }
 
     private void carregarListaTipoPessoas() {
-        ControleTipoPessoa ctp = new ControleTipoPessoa();
-        tipoPessoas = ctp.select();
-        jcbTipoPessoa.removeAllItems();
-        for (TipoPessoa tpessoa : tipoPessoas) {
-            jcbTipoPessoa.addItem(tpessoa);
+        ControleCliente cc = new ControleCliente();
+        clientes = cc.select();
+        jcbCliente.removeAllItems();
+        for (Cliente c : clientes) {
+            jcbCliente.addItem(c);
         }
 
     }
@@ -625,7 +628,7 @@ public class VisaoCliente extends javax.swing.JFrame {
         tipoPessoas.clear();
         jcbEstados.removeAllItems();
         jcbTipoEndereco.removeAllItems();
-        jcbTipoPessoa.removeAllItems();
+        jcbCliente.removeAllItems();
 
     }
 
@@ -639,7 +642,7 @@ public class VisaoCliente extends javax.swing.JFrame {
 
         int codigoCliente = Integer.parseInt(jtfCodigo.getText());
 
-        TipoPessoa tpessoa = (TipoPessoa) jcbTipoPessoa.getSelectedItem();
+        TipoPessoa tpessoa = (TipoPessoa) jcbCliente.getSelectedItem();
         int codigo_TipoPessoa = tpessoa.getCodigo();
 
         Date dataRegisto = new Date();
@@ -674,7 +677,7 @@ public class VisaoCliente extends javax.swing.JFrame {
         Endereco endereco = new Endereco(0, codigoCliente, codigo_TipoEndereco, codigo_uf, logradouro, numero, complemento, bairro, cidade, cep, referencia);
         return endereco;
     }
-    
+
     private Endereco atualizarEndereco(int chaveStrangeira, int pk) {
 
         int codigoCliente = chaveStrangeira;
@@ -705,7 +708,7 @@ public class VisaoCliente extends javax.swing.JFrame {
         jbtExcluir.setEnabled(false);
         jcbEstados.setEnabled(false);
         jcbTipoEndereco.setEnabled(false);
-        jcbTipoPessoa.setEnabled(false);
+        jcbCliente.setEnabled(false);
     }
 
     private void ativarBotoes() {
@@ -717,7 +720,7 @@ public class VisaoCliente extends javax.swing.JFrame {
         jbtExcluir.setEnabled(true);
         jcbEstados.setEnabled(true);
         jcbTipoEndereco.setEnabled(true);
-        jcbTipoPessoa.setEnabled(true);
+        jcbCliente.setEnabled(true);
     }
 
     private void desativarCamposDeTexto() {
@@ -778,11 +781,12 @@ public class VisaoCliente extends javax.swing.JFrame {
             }
         }
 
-        jcbTipoPessoa.setSelectedIndex(index);
+        jcbCliente.setSelectedIndex(index);
 
     }
 
-    private void popularEndereco(int codigoTipoEndereco, int codigoEstado, String logradouro, String bairro, String cep, String cidade, String complemento, String numero, String referencia) {
+    private void popularEndereco(int codigo, int codigoCliente, int codigoTipoEndereco, int codigoEstado, String logradouro, String bairro, String cep, String cidade, String complemento, String numero, String referencia) {
+        jtfCodigo.setText(Integer.toString(codigo));
         jtfLogradouro.setText(logradouro);
         jtfBairro.setText(bairro);
         jtfCep.setText(cep);
@@ -810,23 +814,35 @@ public class VisaoCliente extends javax.swing.JFrame {
         }
 
         jcbEstados.setSelectedIndex(index);
+
+        index = 0;
+        for (int i = 0; i < clientes.size(); i++) {
+            if (clientes.get(i).getCodigo() == codigoCliente) { // Or use equals() if it actually returns an Object.
+                index = i;
+            }
+        }
+
+        jcbCliente.setSelectedIndex(index);
     }
 
-    private void todosOsClientes() {
-        carregarListaClientes();
-        Object[] columnNames = {"Código", "Código Tipo Cliente", "Data Resgistro", "Nome ou Razão Social", "Sobrenome ou Nome Fantasia",
-            "RG ou IE", "Orgão Expedidor", "Cpf ou Cnpj"};
+    private void todosOsEnderecos() {
+        carregarListaEnderecos();
+        Object[] columnNames = {"Código Endereco", "Código Cliente", "Código Tipo Endereço", "Código UF", "Logradouro",
+            "Número", "Complemento", "Bairro", "Cidade", "Cep", "Referência"};
         DefaultTableModel model = new DefaultTableModel(new Object[0][0], columnNames);
-        for (Cliente cliente : clientes) {
-            Object[] o = new Object[8];
-            o[0] = cliente.getCodigo();
-            o[1] = cliente.getCodigoTipoPessoa();
-            o[2] = cliente.getData();
-            o[3] = cliente.getNomeRazaoSocial();
-            o[4] = cliente.getSobrenomeNomeFantasia();
-            o[5] = cliente.getRgIe();
-            o[6] = cliente.getOrgaoExpedidor();
-            o[7] = cliente.getCpfCnpj();
+        for (Endereco endereco : enderecos) {
+            Object[] o = new Object[11];
+            o[0] = endereco.getCodigo();
+            o[1] = endereco.getCodigoCliente();
+            o[2] = endereco.getCodigoTipoEndereco();
+            o[3] = endereco.getCodigoUf();
+            o[4] = endereco.getLogradouro();
+            o[5] = endereco.getNumero();
+            o[6] = endereco.getComplemento();
+            o[7] = endereco.getBairro();
+            o[8] = endereco.getCidade();
+            o[9] = endereco.getCep();
+            o[10] = endereco.getReferencia();
 
             model.addRow(o);
         }
@@ -834,22 +850,25 @@ public class VisaoCliente extends javax.swing.JFrame {
 
     }
 
-    private void fisicoOuJuridico(int chaveEstrangeira) {
-        ControleCliente cc = new ControleCliente();
-        clientes = cc.selectFisicoOuJuridico(chaveEstrangeira);
-        Object[] columnNames = {"Código", "Código Tipo Cliente", "Data Resgistro", "Nome ou Razão Social", "Sobrenome ou Nome Fantasia",
-            "RG ou IE", "Orgão Expedidor", "Cpf ou Cnpj"};
+    private void tipoEndereco(int chaveEstrangeira) {
+        ControleEndereco ce = new ControleEndereco();
+        enderecos = ce.selectTipoEndereco(chaveEstrangeira);
+        Object[] columnNames = {"Código Endereco", "Código Cliente", "Código Tipo Endereço", "Código UF", "Logradouro",
+            "Número", "Complemento", "Bairro", "Cidade", "Cep", "Referência"};
         DefaultTableModel model = new DefaultTableModel(new Object[0][0], columnNames);
-        for (Cliente cliente : clientes) {
-            Object[] o = new Object[8];
-            o[0] = cliente.getCodigo();
-            o[1] = cliente.getCodigoTipoPessoa();
-            o[2] = cliente.getData();
-            o[3] = cliente.getNomeRazaoSocial();
-            o[4] = cliente.getSobrenomeNomeFantasia();
-            o[5] = cliente.getRgIe();
-            o[6] = cliente.getOrgaoExpedidor();
-            o[7] = cliente.getCpfCnpj();
+        for (Endereco endereco : enderecos) {
+            Object[] o = new Object[11];
+            o[0] = endereco.getCodigo();
+            o[1] = endereco.getCodigoCliente();
+            o[2] = endereco.getCodigoTipoEndereco();
+            o[3] = endereco.getCodigoUf();
+            o[4] = endereco.getLogradouro();
+            o[5] = endereco.getNumero();
+            o[6] = endereco.getComplemento();
+            o[7] = endereco.getBairro();
+            o[8] = endereco.getCidade();
+            o[9] = endereco.getCep();
+            o[10] = endereco.getReferencia();
 
             model.addRow(o);
         }
@@ -857,21 +876,26 @@ public class VisaoCliente extends javax.swing.JFrame {
 
     }
 
-    private void clientePorCpfouCpnj() {
-        ControleCliente cc = new ControleCliente();
-        Cliente cliente = (Cliente) cc.selectCpfCpnj(jtfCpf.getText());
-        Object[] columnNames = {"Código", "Código Tipo Cliente", "Data Resgistro", "Nome ou Razão Social", "Sobrenome ou Nome Fantasia",
-            "RG ou IE", "Orgão Expedidor", "Cpf ou Cnpj"};
+    private void enderecoPorCodigoClienteCep() {
+        int index = jcbCliente.getSelectedIndex();
+        int codigoCliente = clientes.get(index).getCodigo();
+        ControleEndereco ce = new ControleEndereco();
+        Endereco endereco = (Endereco) ce.selectCodigoCliente(codigoCliente, jtfCep.getText());
+        Object[] columnNames = {"Código Endereco", "Código Cliente", "Código Tipo Endereço", "Código UF", "Logradouro",
+            "Número", "Complemento", "Bairro", "Cidade", "Cep", "Referência"};
         DefaultTableModel model = new DefaultTableModel(new Object[0][0], columnNames);
-        Object[] o = new Object[8];
-        o[0] = cliente.getCodigo();
-        o[1] = cliente.getCodigoTipoPessoa();
-        o[2] = cliente.getData();
-        o[3] = cliente.getNomeRazaoSocial();
-        o[4] = cliente.getSobrenomeNomeFantasia();
-        o[5] = cliente.getRgIe();
-        o[6] = cliente.getOrgaoExpedidor();
-        o[7] = cliente.getCpfCnpj();
+        Object[] o = new Object[11];
+        o[0] = endereco.getCodigo();
+        o[1] = endereco.getCodigoCliente();
+        o[2] = endereco.getCodigoTipoEndereco();
+        o[3] = endereco.getCodigoUf();
+        o[4] = endereco.getLogradouro();
+        o[5] = endereco.getNumero();
+        o[6] = endereco.getComplemento();
+        o[7] = endereco.getBairro();
+        o[8] = endereco.getCidade();
+        o[9] = endereco.getCep();
+        o[10] = endereco.getReferencia();
 
         model.addRow(o);
 
@@ -918,14 +942,30 @@ public class VisaoCliente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VisaoCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VisaoEndereco.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VisaoCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VisaoEndereco.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VisaoCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VisaoEndereco.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VisaoCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VisaoEndereco.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -946,7 +986,7 @@ public class VisaoCliente extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VisaoCliente().setVisible(true);
+                new VisaoEndereco().setVisible(true);
             }
         });
     }
@@ -980,10 +1020,10 @@ public class VisaoCliente extends javax.swing.JFrame {
     private javax.swing.JToggleButton jbtNovo;
     private javax.swing.JToggleButton jbtSair;
     private javax.swing.JToggleButton jbtSalvar;
+    private javax.swing.JComboBox jcbCliente;
     private javax.swing.JComboBox jcbConsulta;
     private javax.swing.JComboBox jcbEstados;
     private javax.swing.JComboBox jcbTipoEndereco;
-    private javax.swing.JComboBox jcbTipoPessoa;
     private javax.swing.JLabel jlLogo;
     private javax.swing.JPanel jplCampos;
     private javax.swing.JPanel jplTitulo;

@@ -46,4 +46,24 @@ public class ControleCliente {
         return clientes;
         
     }
+    
+        public List selectFisicoOuJuridico(int chaveEstrangeira)
+    {
+        DaoCliente cdao = new DaoCliente();
+        List clientes = cdao.selectFisicoouJuridico(chaveEstrangeira);
+        return clientes;
+        
+    }
+    
+    public Object selectCpfCpnj(String cpf)
+    {
+        DaoCliente cdao = new DaoCliente();
+        return cdao.selectCpfCpnj(cpf);
+    }
+    
+        public Object selectRgIe(String rgIe)
+    {
+        DaoCliente cdao = new DaoCliente();
+        return cdao.selectRgIe(rgIe);
+    }
 }

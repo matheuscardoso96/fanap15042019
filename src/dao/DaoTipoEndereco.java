@@ -10,7 +10,7 @@ import java.util.List;
 import modelo.TipoEndereco;
 import conexoes.Conectar;
 import java.sql.SQLException;
-import alertaj.Jop;
+import fanapUtil.Jop;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 

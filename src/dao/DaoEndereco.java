@@ -10,7 +10,7 @@ import java.util.List;
 import modelo.Endereco;
 import conexoes.Conectar;
 import java.sql.SQLException;
-import alertaj.Jop;
+import fanapUtil.Jop;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
@@ -129,6 +129,7 @@ public class DaoEndereco implements IDao {
             getPreparedStatement().setString(10, endereco.getReferencia());
             getPreparedStatement().setInt(11, endereco.getCodigo());
             getPreparedStatement().executeUpdate();
+            String result = preparedStatement.toString();
             conexao.fecharConexao();
             Jop.alerta("Atualizado com sucesso!");
         } catch (SQLException e) {
@@ -211,7 +212,71 @@ public class DaoEndereco implements IDao {
                         getResultSet().getString("cidade_cend"),
                         getResultSet().getString("cep_cend"),
                         getResultSet().getString("referencia_cend")
-                
+                ));
+
+            }
+            conexao.fecharConexao();
+
+        } catch (SQLException e) {
+            Jop.alerta(e.getMessage());
+        }
+
+        return list;
+    }
+
+    public Object selectCodigoCliente(int chaveEstrangeira, String cep) {
+        Endereco endereco = new Endereco();
+        setQuery("SELECT * FROM clienteendereco WHERE codigo_clie_cend=? AND cep_cend=?");
+        try {
+            conexao.obterConexao();
+            setPreparedStatement((PreparedStatement) conexao.getConexao().prepareStatement(getQuery()));
+            getPreparedStatement().setInt(1, chaveEstrangeira);
+            getPreparedStatement().setString(2, cep);
+            setResultSet(getPreparedStatement().executeQuery());
+            while (getResultSet().next()) {
+                endereco.setCodigo(getResultSet().getInt("codigo_cend"));
+                endereco.setCodigoCliente(getResultSet().getInt("codigo_clie_cend"));
+                endereco.setCodigoTipoEndereco(getResultSet().getInt("codigo_tend_cend"));
+                endereco.setCodigoUf(getResultSet().getInt("codigo_ufed_cend"));
+                endereco.setLogradouro(getResultSet().getString("logradouro_cend"));
+                endereco.setNumero(getResultSet().getString("numero_cend"));
+                endereco.setComplemento(getResultSet().getString("complemento_cend"));
+                endereco.setBairro(getResultSet().getString("bairro_cend"));
+                endereco.setCidade(getResultSet().getString("cidade_cend"));
+                endereco.setCep(getResultSet().getString("cep_cend"));
+                endereco.setReferencia(getResultSet().getString("referencia_cend"));
+
+            }
+            conexao.fecharConexao();
+
+        } catch (SQLException e) {
+            Jop.alerta(e.getMessage());
+        }
+
+        return endereco;
+    }
+    
+    public List selectTipoEndereco(int chaveEstrangeira) {
+        List list = new ArrayList();
+        setQuery("SELECT * FROM clienteendereco WHERE codigo_tend_cend=? ORDER BY codigo_cend");
+        try {
+            conexao.obterConexao();
+            setPreparedStatement((PreparedStatement) conexao.getConexao().prepareStatement(getQuery()));
+             getPreparedStatement().setInt(1, chaveEstrangeira);
+            setResultSet(getPreparedStatement().executeQuery());
+
+            while (getResultSet().next()) {
+                list.add(new Endereco(getResultSet().getInt("codigo_cend"),
+                        getResultSet().getInt("codigo_clie_cend"),
+                        getResultSet().getInt("codigo_tend_cend"),
+                        getResultSet().getInt("codigo_ufed_cend"),
+                        getResultSet().getString("logradouro_cend"),
+                        getResultSet().getString("numero_cend"),
+                        getResultSet().getString("complemento_cend"),
+                        getResultSet().getString("bairro_cend"),
+                        getResultSet().getString("cidade_cend"),
+                        getResultSet().getString("cep_cend"),
+                        getResultSet().getString("referencia_cend")
                 ));
 
             }
@@ -225,4 +290,3 @@ public class DaoEndereco implements IDao {
     }
 
 }
-

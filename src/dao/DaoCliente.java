@@ -10,7 +10,7 @@ import java.util.List;
 import modelo.Cliente;
 import conexoes.Conectar;
 import java.sql.SQLException;
-import alertaj.Jop;
+import fanapUtil.Jop;
 import dao.IDao;
 import java.sql.ResultSet;
 import java.util.ArrayList;
@@ -204,6 +204,93 @@ public class DaoCliente implements IDao {
         }
 
         return list;
+    }
+    
+        public List selectFisicoouJuridico(int chaveEstrangeira) {
+        List list = new ArrayList();
+        setQuery("SELECT * FROM cliente WHERE codigo_tpes_clie=? ORDER BY codigo_clie");
+        try {
+            conexao.obterConexao();
+            setPreparedStatement((PreparedStatement) conexao.getConexao().prepareStatement(getQuery()));
+            getPreparedStatement().setInt(1, chaveEstrangeira);
+            setResultSet(getPreparedStatement().executeQuery());
+
+            while (getResultSet().next()) {
+                list.add(new Cliente(getResultSet().getInt("codigo_clie"),
+                        getResultSet().getInt("codigo_tpes_clie"),
+                        getResultSet().getDate("registro_clie"),
+                        getResultSet().getString("nome_razaosocial_clie"),
+                        getResultSet().getString("sobrenome_nomefantasia_clie"),
+                        getResultSet().getString("rg_ie_clie"),
+                        getResultSet().getString("orgao_exp_clie"),
+                        getResultSet().getString("cpf_cnpj_clie")));
+
+            }
+            conexao.fecharConexao();
+
+        } catch (SQLException e) {
+            Jop.alerta(e.getMessage());
+        }
+
+        return list;
+    }
+
+    public Object selectCpfCpnj(String cpf) {
+        Cliente cliente = new Cliente();
+        setQuery("SELECT * FROM cliente WHERE cpf_cnpj_clie=?");
+        try {
+            conexao.obterConexao();
+            setPreparedStatement((PreparedStatement) conexao.getConexao().prepareStatement(getQuery()));
+            getPreparedStatement().setString(1, cpf);
+            setResultSet(getPreparedStatement().executeQuery());
+
+            while (getResultSet().next()) {
+                cliente.setCodigo(getResultSet().getInt("codigo_clie"));
+                cliente.setCodigoTipoPessoa(getResultSet().getInt("codigo_tpes_clie"));
+                cliente.setData(getResultSet().getDate("registro_clie"));
+                cliente.setNomeRazaoSocial(getResultSet().getString("nome_razaosocial_clie"));
+                cliente.setSobrenomeNomeFantasia(getResultSet().getString("sobrenome_nomefantasia_clie"));
+                cliente.setRgIe(getResultSet().getString("rg_ie_clie"));
+                cliente.setOrgaoExpedidor(getResultSet().getString("orgao_exp_clie"));
+                cliente.setCpfCnpj(getResultSet().getString("cpf_cnpj_clie"));
+
+            }
+            conexao.fecharConexao();
+
+        } catch (SQLException e) {
+            Jop.alerta(e.getMessage());
+        }
+
+        return cliente;
+    }
+    
+       public Object selectRgIe(String rgIe) {
+        Cliente cliente = new Cliente();
+        setQuery("SELECT * FROM cliente WHERE rg_ie_clie=?");
+        try {
+            conexao.obterConexao();
+            setPreparedStatement((PreparedStatement) conexao.getConexao().prepareStatement(getQuery()));
+            getPreparedStatement().setString(1, rgIe);
+            setResultSet(getPreparedStatement().executeQuery());
+
+            while (getResultSet().next()) {
+                cliente.setCodigo(getResultSet().getInt("codigo_clie"));
+                cliente.setCodigoTipoPessoa(getResultSet().getInt("codigo_tpes_clie"));
+                cliente.setData(getResultSet().getDate("registro_clie"));
+                cliente.setNomeRazaoSocial(getResultSet().getString("nome_razaosocial_clie"));
+                cliente.setSobrenomeNomeFantasia(getResultSet().getString("sobrenome_nomefantasia_clie"));
+                cliente.setRgIe(getResultSet().getString("rg_ie_clie"));
+                cliente.setOrgaoExpedidor(getResultSet().getString("orgao_exp_clie"));
+                cliente.setCpfCnpj(getResultSet().getString("cpf_cnpj_clie"));
+
+            }
+            conexao.fecharConexao();
+
+        } catch (SQLException e) {
+            Jop.alerta(e.getMessage());
+        }
+
+        return cliente;
     }
 
 }

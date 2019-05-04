@@ -5,7 +5,7 @@
  */
 package visao;
 
-import alertaj.Jop;
+import fanapUtil.Jop;
 import controle.ControleTipoPessoa;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
