@@ -39,10 +39,10 @@ public class ControleEndereco {
     
     }
     
-    public Object selectCodigoCliente(int chaveEstrangeira, String cep)
+    public Object selectCodigoCliente(int chaveEstrangeira, int codigoTendereco)
     {
         DaoEndereco edao = new DaoEndereco();
-        return edao.selectCodigoCliente(chaveEstrangeira,cep);
+        return edao.selectCodigoCliente(chaveEstrangeira,codigoTendereco);
     
     }
     

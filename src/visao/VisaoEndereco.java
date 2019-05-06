@@ -59,18 +59,8 @@ public class VisaoEndereco extends javax.swing.JFrame {
         jtfLogradouro = new javax.swing.JTextField();
         jtfCodigo = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jtfNome = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jcbCliente = new javax.swing.JComboBox();
-        jLabel6 = new javax.swing.JLabel();
-        jtfSobrenome = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        jtfRgIe = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jtfOrgaoExpedidor = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jtfCpf = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jcbTipoEndereco = new javax.swing.JComboBox();
         jLabel11 = new javax.swing.JLabel();
@@ -137,8 +127,6 @@ public class VisaoEndereco extends javax.swing.JFrame {
 
         jLabel2.setText("Código");
 
-        jLabel4.setText("Nome ou Razão Social");
-
         jLabel5.setText("Cliente");
 
         jcbCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -146,14 +134,6 @@ public class VisaoEndereco extends javax.swing.JFrame {
                 jcbClienteActionPerformed(evt);
             }
         });
-
-        jLabel6.setText("Sobrenome ou Nome Fantasia");
-
-        jLabel7.setText("RG ou Inscrição Estadual");
-
-        jLabel8.setText("Orgão Expedidor");
-
-        jLabel9.setText("CPF Oou CPNPJ");
 
         jLabel10.setText("Tipo Endereço");
 
@@ -227,7 +207,7 @@ public class VisaoEndereco extends javax.swing.JFrame {
             }
         });
 
-        jcbConsulta.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Todos", "Residencial", "Comercial", "Correspêndcia", "Entrega", "Recado", "Outros(s)", "Cliente/Cep" }));
+        jcbConsulta.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Todos", "Residencial", "Comercial", "Correspêndcia", "Entrega", "Recado", "Outros(s)", "Endereço por cliente" }));
 
         jLabel18.setText("Consultar Endereços:");
 
@@ -243,142 +223,107 @@ public class VisaoEndereco extends javax.swing.JFrame {
         jplCamposLayout.setHorizontalGroup(
             jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jplCamposLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
                 .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jplCamposLayout.createSequentialGroup()
-                            .addComponent(jtfComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(jcbEstados, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jplCamposLayout.createSequentialGroup()
-                            .addComponent(jLabel16)
-                            .addGap(320, 320, 320)
-                            .addComponent(jLabel11))
-                        .addGroup(jplCamposLayout.createSequentialGroup()
-                            .addComponent(jLabel2)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jtfCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jbtBuscaCodigo)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jLabel5)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jcbCliente, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addComponent(jtfNome)
-                        .addGroup(jplCamposLayout.createSequentialGroup()
-                            .addComponent(jtfRgIe, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jtfOrgaoExpedidor))
-                        .addComponent(jtfSobrenome)
-                        .addComponent(jLabel17)
-                        .addComponent(jtfReferencia))
-                    .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel4)
-                        .addComponent(jLabel6)
-                        .addGroup(jplCamposLayout.createSequentialGroup()
-                            .addComponent(jLabel7)
-                            .addGap(73, 73, 73)
-                            .addComponent(jLabel8))
-                        .addComponent(jLabel3)
-                        .addComponent(jtfLogradouro, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jplCamposLayout.createSequentialGroup()
-                            .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jtfCpf, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel9))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jcbTipoEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel10))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel12)
-                                .addComponent(jtfNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(jplCamposLayout.createSequentialGroup()
-                            .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jtfBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel13))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jtfCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel14))
-                            .addGap(18, 18, 18)
-                            .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel15)
-                                .addComponent(jtfCep)))))
-                .addGap(18, 18, 18)
-                .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jplCamposLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel18)
-                            .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jplCamposLayout.createSequentialGroup()
-                                    .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jbtConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(jplCamposLayout.createSequentialGroup()
-                                            .addGap(1, 1, 1)
-                                            .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jbtNovo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jbtSalvar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jbtAlterar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jbtCancelar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(jbtExcluir, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addGap(7, 7, 7))
-                                .addComponent(jcbConsulta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jplCamposLayout.createSequentialGroup()
+                        .addGap(405, 405, 405)
+                        .addComponent(jcbCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jplCamposLayout.createSequentialGroup()
+                        .addGap(31, 31, 31)
                         .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jbtIncluir, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jbtSair, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                            .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel3)
+                                .addComponent(jtfLogradouro, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jplCamposLayout.createSequentialGroup()
+                                    .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jtfBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel13))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jtfCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel14))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel15)
+                                        .addComponent(jtfCep)))
+                                .addGroup(jplCamposLayout.createSequentialGroup()
+                                    .addComponent(jtfComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jcbEstados, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jplCamposLayout.createSequentialGroup()
+                                    .addComponent(jLabel16)
+                                    .addGap(320, 320, 320)
+                                    .addComponent(jLabel11))
+                                .addComponent(jLabel17)
+                                .addComponent(jtfReferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 551, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jplCamposLayout.createSequentialGroup()
+                                .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jplCamposLayout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jtfCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel10)
+                                    .addComponent(jcbTipoEndereco, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jplCamposLayout.createSequentialGroup()
+                                        .addComponent(jbtBuscaCodigo)
+                                        .addGap(6, 6, 6)
+                                        .addComponent(jLabel5))
+                                    .addComponent(jLabel12)
+                                    .addComponent(jtfNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jplCamposLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                        .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jplCamposLayout.createSequentialGroup()
+                                .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jbtCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jbtExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jbtAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jbtSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jbtNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jbtSair, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jbtIncluir, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(7, 7, 7))
+                            .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jcbConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(21, 21, 21))
+                    .addGroup(jplCamposLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jbtConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         jplCamposLayout.setVerticalGroup(
             jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jplCamposLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jtfCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbtBuscaCodigo)
-                    .addComponent(jcbCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(jbtIncluir))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addGroup(jplCamposLayout.createSequentialGroup()
                 .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jplCamposLayout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtfNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtfSobrenome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel12)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel7))
+                            .addComponent(jcbTipoEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtfNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jtfOrgaoExpedidor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jbtExcluir))
-                            .addComponent(jtfRgIe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jplCamposLayout.createSequentialGroup()
-                                .addGap(15, 15, 15)
-                                .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel10)
-                                    .addComponent(jLabel12))
+                                .addGap(107, 107, 107)
+                                .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jplCamposLayout.createSequentialGroup()
+                                        .addGap(3, 3, 3)
+                                        .addComponent(jLabel11))
+                                    .addGroup(jplCamposLayout.createSequentialGroup()
+                                        .addComponent(jLabel16)
+                                        .addGap(9, 9, 9)
+                                        .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jtfComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jcbEstados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jtfCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jcbTipoEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jtfNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jbtSair))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel17)
+                                .addGap(6, 6, 6)
+                                .addComponent(jtfReferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jplCamposLayout.createSequentialGroup()
                                 .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jtfLogradouro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -389,35 +334,37 @@ public class VisaoEndereco extends javax.swing.JFrame {
                                 .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jtfBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jtfCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jtfCep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel11))
-                            .addGroup(jplCamposLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 163, Short.MAX_VALUE)
-                                .addComponent(jLabel16)
-                                .addGap(9, 9, 9)
-                                .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jtfComplemento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jcbEstados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel18))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel17)
-                            .addComponent(jcbConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(6, 6, 6)
-                        .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jtfReferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jbtConsulta))
-                        .addGap(15, 15, 15))
+                                    .addComponent(jtfCep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jplCamposLayout.createSequentialGroup()
-                        .addComponent(jbtNovo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addContainerGap()
+                        .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(jtfCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jbtBuscaCodigo)
+                            .addComponent(jcbCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5)
+                            .addComponent(jbtIncluir))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jbtNovo)
+                            .addComponent(jLabel10))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jbtSalvar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jbtAlterar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jbtExcluir)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jbtCancelar)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jbtSair)
+                        .addGap(53, 53, 53)
+                        .addComponent(jLabel18)
+                        .addGap(17, 17, 17)
+                        .addComponent(jcbConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jbtConsulta)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jtConsulta.setModel(new javax.swing.table.DefaultTableModel(
@@ -425,11 +372,11 @@ public class VisaoEndereco extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Código", "Código Tipo Cliente", "Data Registro", "Nome ou Razão Social", "Sobrenome ou Nome Fantasia", "RG ou IE", "Orgão Expedidor", "Cpf ou Cnpj"
+                "Código", "Código Cliente", "Código Tipo Endereço", "Código UF", "Logradouro", "Número", "Complemento", "Bairro", "Cidade", "Cep", "Referência"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, true, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -447,11 +394,9 @@ public class VisaoEndereco extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1)
-                        .addContainerGap())
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jplCampos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -459,8 +404,8 @@ public class VisaoEndereco extends javax.swing.JFrame {
                 .addComponent(jplTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jplCampos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE))
         );
 
         pack();
@@ -472,11 +417,6 @@ public class VisaoEndereco extends javax.swing.JFrame {
 
     private void jbtBuscaCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtBuscaCodigoActionPerformed
 
-        //ControleCliente cc = new ControleCliente();
-        // Cliente cliente = (Cliente) cc.selectCodigo(Integer.parseInt(jtfCodigo.getText()));
-       // popularCampos(Integer.toString(cliente.getCodigo()), cliente.getCodigoTipoPessoa(), cliente.getData(), cliente.getNomeRazaoSocial(), cliente.getSobrenomeNomeFantasia(),
-        //cliente.getRgIe(), cliente.getOrgaoExpedidor(), cliente.getCpfCnpj());
-        // Cliente cliente = (Cliente) jcbCliente.getSelectedItem();
         ControleEndereco ce = new ControleEndereco();
 
         Endereco endereco = (Endereco) ce.selectCodigo(Integer.parseInt(jtfCodigo.getText()));
@@ -514,8 +454,8 @@ public class VisaoEndereco extends javax.swing.JFrame {
             case "Outros(s)":
                 tipoEndereco(6);
                 break;
-            case "Cliente/Cep":
-                enderecoPorCodigoClienteCep();
+            case "Endereço por cliente":
+                enderecoPorCliente();
                 break;
             default:
 
@@ -538,7 +478,8 @@ public class VisaoEndereco extends javax.swing.JFrame {
             int codigoCliente = clientes.get(index).getCodigo();
 
             ControleEndereco ce = new ControleEndereco();
-            Endereco enderecoVelho = (Endereco) ce.selectCodigoCliente(codigoCliente, jtfCep.getText());
+            TipoEndereco tendereco = (TipoEndereco) jcbTipoEndereco.getSelectedItem();
+            Endereco enderecoVelho = (Endereco) ce.selectCodigoCliente(codigoCliente, tendereco.getCodigo());
             Endereco enderecoNovo = (Endereco) atualizarEndereco(codigoCliente, enderecoVelho.getCodigo());
             int chave = ce.update(enderecoNovo);
             popularChave(Integer.toString(chave));
@@ -551,20 +492,25 @@ public class VisaoEndereco extends javax.swing.JFrame {
 
         int opcao = Jop.alertaOpcao("Deseja realmente excluir esse registro?");
         if (opcao == 0) {
-            ControleCliente cc = new ControleCliente();
-            int chavePrimaria = cc.delete((Cliente) criarCliente());
+            int index = jcbCliente.getSelectedIndex();
+            int codigoCliente = clientes.get(index).getCodigo();
+            ControleEndereco ce = new ControleEndereco();
+            int chavePrimaria = ce.delete((Endereco) criarEndereco(codigoCliente));
             popularChave(Integer.toString(chavePrimaria));
         }
+
     }//GEN-LAST:event_jbtExcluirActionPerformed
 
     private void jbtSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtSalvarActionPerformed
         checarChave();
-        ControleCliente cc = new ControleCliente();
+        Cliente cliente = (Cliente) jcbCliente.getSelectedItem();
         ControleEndereco ce = new ControleEndereco();
-        int chavePrimaria = cc.insert((Cliente) criarCliente());
-        ce.insert((Endereco) criarEndereco(chavePrimaria));
-        popularChave(Integer.toString(chavePrimaria));
+        int chaveFinal = ce.insert((Endereco) criarEndereco(cliente.getCodigo()));
+        popularChave(Integer.toString(chaveFinal));
         desativarCamposDeTexto();
+        desativarBotoes();
+        jbtIncluir.setEnabled(true);
+
     }//GEN-LAST:event_jbtSalvarActionPerformed
 
     private void jbtNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtNovoActionPerformed
@@ -638,24 +584,6 @@ public class VisaoEndereco extends javax.swing.JFrame {
         }
     }
 
-    private Object criarCliente() {
-
-        int codigoCliente = Integer.parseInt(jtfCodigo.getText());
-
-        TipoPessoa tpessoa = (TipoPessoa) jcbCliente.getSelectedItem();
-        int codigo_TipoPessoa = tpessoa.getCodigo();
-
-        Date dataRegisto = new Date();
-        String nome = jtfNome.getText();
-        String sbNome = jtfSobrenome.getText();
-        String rgIe = jtfRgIe.getText();
-        String ogExp = jtfOrgaoExpedidor.getText();
-        String cpfCnpj = jtfCpf.getText();
-
-        Cliente cliente = new Cliente(codigoCliente, codigo_TipoPessoa, dataRegisto, nome, sbNome, rgIe, ogExp, cpfCnpj);
-        return cliente;
-    }
-
     private Endereco criarEndereco(int chaveStrangeira) {
 
         int codigoCliente = chaveStrangeira;
@@ -674,7 +602,7 @@ public class VisaoEndereco extends javax.swing.JFrame {
         String cep = jtfCep.getText();
         String referencia = jtfReferencia.getText();
 
-        Endereco endereco = new Endereco(0, codigoCliente, codigo_TipoEndereco, codigo_uf, logradouro, numero, complemento, bairro, cidade, cep, referencia);
+        Endereco endereco = new Endereco(Integer.parseInt(jtfCodigo.getText()), codigoCliente, codigo_TipoEndereco, codigo_uf, logradouro, numero, complemento, bairro, cidade, cep, referencia);
         return endereco;
     }
 
@@ -725,35 +653,24 @@ public class VisaoEndereco extends javax.swing.JFrame {
 
     private void desativarCamposDeTexto() {
         jtfCodigo.setEnabled(false);
-        jtfNome.setEnabled(false);
         jtfLogradouro.setEnabled(false);
         jtfBairro.setEnabled(false);
         jtfCep.setEnabled(false);
         jtfCidade.setEnabled(false);
         jtfComplemento.setEnabled(false);
-        jtfCpf.setEnabled(false);
         jtfNumero.setEnabled(false);
-        jtfOrgaoExpedidor.setEnabled(false);
         jtfReferencia.setEnabled(false);
-        jtfRgIe.setEnabled(false);
-        jtfSobrenome.setEnabled(false);
 
     }
 
     private void ativarCamposDeTexto() {
         jtfCodigo.setEnabled(true);
-        jtfNome.setEnabled(true);
         jtfLogradouro.setEnabled(true);
         jtfBairro.setEnabled(true);
         jtfCep.setEnabled(true);
         jtfCidade.setEnabled(true);
         jtfComplemento.setEnabled(true);
-        jtfCpf.setEnabled(true);
         jtfNumero.setEnabled(true);
-        jtfOrgaoExpedidor.setEnabled(true);
-        jtfReferencia.setEnabled(true);
-        jtfRgIe.setEnabled(true);
-        jtfSobrenome.setEnabled(true);
     }
 
     private void limparCampos() {
@@ -763,25 +680,6 @@ public class VisaoEndereco extends javax.swing.JFrame {
 
     private void popularChave(String chave) {
         jtfCodigo.setText(chave);
-
-    }
-
-    private void popularCampos(String codigo, int codigoTipoPessoa, Date registro, String nome, String sobrenome, String rg, String orgao, String cpf) {
-        jtfCodigo.setText(codigo);
-        jtfNome.setText(nome);
-        jtfSobrenome.setText(sobrenome);
-        jtfRgIe.setText(rg);
-        jtfOrgaoExpedidor.setText(orgao);
-        jtfCpf.setText(cpf);
-
-        int index = 0;
-        for (int i = 0; i < tipoPessoas.size(); i++) {
-            if (tipoPessoas.get(i).getCodigo() == codigoTipoPessoa) { // Or use equals() if it actually returns an Object.
-                index = i;
-            }
-        }
-
-        jcbCliente.setSelectedIndex(index);
 
     }
 
@@ -797,7 +695,7 @@ public class VisaoEndereco extends javax.swing.JFrame {
 
         int index = 0;
         for (int i = 0; i < tipoEnderecos.size(); i++) {
-            if (tipoEnderecos.get(i).getCodigo() == codigoTipoEndereco) { // Or use equals() if it actually returns an Object.
+            if (tipoEnderecos.get(i).getCodigo() == codigoTipoEndereco) {
                 index = i;
                 break;
             }
@@ -807,7 +705,7 @@ public class VisaoEndereco extends javax.swing.JFrame {
 
         index = 0;
         for (int i = 0; i < ufs.size(); i++) {
-            if (ufs.get(i).getCodigo() == codigoEstado) { // Or use equals() if it actually returns an Object.
+            if (ufs.get(i).getCodigo() == codigoEstado) { 
                 index = i;
                 break;
             }
@@ -817,7 +715,7 @@ public class VisaoEndereco extends javax.swing.JFrame {
 
         index = 0;
         for (int i = 0; i < clientes.size(); i++) {
-            if (clientes.get(i).getCodigo() == codigoCliente) { // Or use equals() if it actually returns an Object.
+            if (clientes.get(i).getCodigo() == codigoCliente) { 
                 index = i;
             }
         }
@@ -876,55 +774,57 @@ public class VisaoEndereco extends javax.swing.JFrame {
 
     }
 
-    private void enderecoPorCodigoClienteCep() {
-        int index = jcbCliente.getSelectedIndex();
-        int codigoCliente = clientes.get(index).getCodigo();
-        ControleEndereco ce = new ControleEndereco();
-        Endereco endereco = (Endereco) ce.selectCodigoCliente(codigoCliente, jtfCep.getText());
-        Object[] columnNames = {"Código Endereco", "Código Cliente", "Código Tipo Endereço", "Código UF", "Logradouro",
+    private void enderecoPorCliente() {
+        carregarListaEnderecos();
+        carregarListaClientes();
+        Object[] columnNames = {"Código Endereco", "Nome","Sobrenome", "Logradouro",
             "Número", "Complemento", "Bairro", "Cidade", "Cep", "Referência"};
         DefaultTableModel model = new DefaultTableModel(new Object[0][0], columnNames);
-        Object[] o = new Object[11];
-        o[0] = endereco.getCodigo();
-        o[1] = endereco.getCodigoCliente();
-        o[2] = endereco.getCodigoTipoEndereco();
-        o[3] = endereco.getCodigoUf();
-        o[4] = endereco.getLogradouro();
-        o[5] = endereco.getNumero();
-        o[6] = endereco.getComplemento();
-        o[7] = endereco.getBairro();
-        o[8] = endereco.getCidade();
-        o[9] = endereco.getCep();
-        o[10] = endereco.getReferencia();
+        for (Endereco endereco : enderecos) {
+            Object[] o = new Object[11];
+            o[0] = endereco.getCodigo();
+            for (int i = 0; i < clientes.size(); i++) {
+                if (clientes.get(i).getCodigo() == endereco.getCodigoCliente()) {
+                    o[1] = clientes.get(i).getNomeRazaoSocial();
+                    o[2] = clientes.get(i).getSobrenomeNomeFantasia();
+                }
+            }
+            o[3] = endereco.getLogradouro();
+            o[4] = endereco.getNumero();
+            o[5] = endereco.getComplemento();
+            o[6] = endereco.getBairro();
+            o[7] = endereco.getCidade();
+            o[8] = endereco.getCep();
+            o[9] = endereco.getReferencia();
 
-        model.addRow(o);
-
+            model.addRow(o);
+        }
         jtConsulta.setModel(model);
 
     }
 
-    private void clientePorRgIe() {
-        ControleCliente cc = new ControleCliente();
-        Cliente cliente = (Cliente) cc.selectRgIe(jtfRgIe.getText());
-        Object[] columnNames = {"Código", "Código Tipo Cliente", "Data Resgistro", "Nome ou Razão Social", "Sobrenome ou Nome Fantasia",
-            "RG ou IE", "Orgão Expedidor", "Cpf ou Cnpj"};
-        DefaultTableModel model = new DefaultTableModel(new Object[0][0], columnNames);
-        Object[] o = new Object[8];
-        o[0] = cliente.getCodigo();
-        o[1] = cliente.getCodigoTipoPessoa();
-        o[2] = cliente.getData();
-        o[3] = cliente.getNomeRazaoSocial();
-        o[4] = cliente.getSobrenomeNomeFantasia();
-        o[5] = cliente.getRgIe();
-        o[6] = cliente.getOrgaoExpedidor();
-        o[7] = cliente.getCpfCnpj();
+    /*  private void todosEnderecoPocliente() {
+     ControleCliente cc = new ControleCliente();
+     Cliente cliente = (Cliente) cc.selectRgIe(jtfRgIe.getText());
+     Object[] columnNames = {"Código", "Código Tipo Cliente", "Data Resgistro", "Nome ou Razão Social", "Sobrenome ou Nome Fantasia",
+     "RG ou IE", "Orgão Expedidor", "Cpf ou Cnpj"};
+     DefaultTableModel model = new DefaultTableModel(new Object[0][0], columnNames);
+     Object[] o = new Object[8];
+     o[0] = cliente.getCodigo();
+     o[1] = cliente.getCodigoTipoPessoa();
+     o[2] = cliente.getData();
+     o[3] = cliente.getNomeRazaoSocial();
+     o[4] = cliente.getSobrenomeNomeFantasia();
+     o[5] = cliente.getRgIe();
+     o[6] = cliente.getOrgaoExpedidor();
+     o[7] = cliente.getCpfCnpj();
 
-        model.addRow(o);
+     model.addRow(o);
 
-        jtConsulta.setModel(model);
+     jtConsulta.setModel(model);
 
-    }
-
+     }
+     */
     /**
      * @param args the command line arguments
      */
@@ -1004,12 +904,7 @@ public class VisaoEndereco extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JToggleButton jbtAlterar;
     private javax.swing.JButton jbtBuscaCodigo;
@@ -1033,13 +928,8 @@ public class VisaoEndereco extends javax.swing.JFrame {
     private javax.swing.JTextField jtfCidade;
     private javax.swing.JTextField jtfCodigo;
     private javax.swing.JTextField jtfComplemento;
-    private javax.swing.JTextField jtfCpf;
     private javax.swing.JTextField jtfLogradouro;
-    private javax.swing.JTextField jtfNome;
     private javax.swing.JTextField jtfNumero;
-    private javax.swing.JTextField jtfOrgaoExpedidor;
     private javax.swing.JTextField jtfReferencia;
-    private javax.swing.JTextField jtfRgIe;
-    private javax.swing.JTextField jtfSobrenome;
     // End of variables declaration//GEN-END:variables
 }

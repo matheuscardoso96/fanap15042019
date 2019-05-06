@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import fanapUtil.Jop;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import modelo.Cliente;
 
 /**
  *
@@ -144,11 +145,12 @@ public class DaoEndereco implements IDao {
     @Override
     public int delete(Object obj) {
         Endereco endereco = (Endereco) obj;
-        setQuery("DELETE FROM clienteendereco WHERE codigo_cend=?");
+        setQuery("DELETE FROM clienteendereco WHERE codigo_cend=? AND codigo_tend_cend=?");
         try {
             conexao.obterConexao();
             setPreparedStatement((PreparedStatement) conexao.getConexao().prepareStatement(getQuery()));
             getPreparedStatement().setInt(1, endereco.getCodigo());
+            getPreparedStatement().setInt(2, endereco.getCodigoTipoEndereco());
             getPreparedStatement().executeUpdate();
             conexao.fecharConexao();
             Jop.alerta("Registro apagado!");
@@ -224,14 +226,14 @@ public class DaoEndereco implements IDao {
         return list;
     }
 
-    public Object selectCodigoCliente(int chaveEstrangeira, String cep) {
+    public Object selectCodigoCliente(int chaveEstrangeira, int codigoTendereco) {
         Endereco endereco = new Endereco();
-        setQuery("SELECT * FROM clienteendereco WHERE codigo_clie_cend=? AND cep_cend=?");
+        setQuery("SELECT * FROM clienteendereco WHERE codigo_clie_cend=? AND codigo_tend_cend=?");
         try {
             conexao.obterConexao();
             setPreparedStatement((PreparedStatement) conexao.getConexao().prepareStatement(getQuery()));
             getPreparedStatement().setInt(1, chaveEstrangeira);
-            getPreparedStatement().setString(2, cep);
+            getPreparedStatement().setInt(2, codigoTendereco);
             setResultSet(getPreparedStatement().executeQuery());
             while (getResultSet().next()) {
                 endereco.setCodigo(getResultSet().getInt("codigo_cend"));
@@ -255,6 +257,7 @@ public class DaoEndereco implements IDao {
 
         return endereco;
     }
+    
     
     public List selectTipoEndereco(int chaveEstrangeira) {
         List list = new ArrayList();

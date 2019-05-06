@@ -173,7 +173,7 @@ public class VisaoCliente extends javax.swing.JFrame {
 
         jLabel17.setText("Referencia");
 
-        jbtBuscaCodigo.setText("Busca por Código");
+        jbtBuscaCodigo.setText("<html>Busca por Código<br/> Tipo Endereço</html>");
         jbtBuscaCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbtBuscaCodigoActionPerformed(evt);
@@ -256,23 +256,22 @@ public class VisaoCliente extends javax.swing.JFrame {
                             .addComponent(jLabel16)
                             .addGap(320, 320, 320)
                             .addComponent(jLabel11))
-                        .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jplCamposLayout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jtfCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jbtBuscaCodigo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jcbTipoPessoa, 0, 166, Short.MAX_VALUE))
-                            .addComponent(jtfNome, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jplCamposLayout.createSequentialGroup()
-                                .addComponent(jtfRgIe, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jtfOrgaoExpedidor))
-                            .addComponent(jtfSobrenome, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGroup(jplCamposLayout.createSequentialGroup()
+                            .addComponent(jLabel2)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jtfCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jbtBuscaCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel5)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jcbTipoPessoa, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jtfNome)
+                        .addGroup(jplCamposLayout.createSequentialGroup()
+                            .addComponent(jtfRgIe, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jtfOrgaoExpedidor))
+                        .addComponent(jtfSobrenome)
                         .addComponent(jLabel17)
                         .addComponent(jtfReferencia))
                     .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -342,7 +341,7 @@ public class VisaoCliente extends javax.swing.JFrame {
                 .addGroup(jplCamposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jtfCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbtBuscaCodigo)
+                    .addComponent(jbtBuscaCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jcbTipoPessoa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
                     .addComponent(jbtIncluir))
@@ -463,7 +462,7 @@ public class VisaoCliente extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jplCampos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 57, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE))
         );
 
         pack();
@@ -482,8 +481,9 @@ public class VisaoCliente extends javax.swing.JFrame {
                 cliente.getRgIe(), cliente.getOrgaoExpedidor(), cliente.getCpfCnpj());
 
         ControleEndereco ce = new ControleEndereco();
+        TipoEndereco tendereco = (TipoEndereco) jcbTipoEndereco.getSelectedItem();
 
-        Endereco endereco = (Endereco) ce.selectCodigoCliente(cliente.getCodigo(),jtfCep.getText());
+        Endereco endereco = (Endereco) ce.selectCodigoCliente(cliente.getCodigo(),tendereco.getCodigo());
         popularEndereco(endereco.getCodigoTipoEndereco(), endereco.getCodigoUf(), endereco.getLogradouro(), endereco.getBairro(),
                 endereco.getCep(), endereco.getCidade(), endereco.getComplemento(), endereco.getNumero(), endereco.getReferencia());
     }//GEN-LAST:event_jbtBuscaCodigoActionPerformed
@@ -540,7 +540,8 @@ public class VisaoCliente extends javax.swing.JFrame {
             popularChave(Integer.toString(chavePrimaria));
             
             ControleEndereco ce = new ControleEndereco();
-            Endereco enderecoVelho = (Endereco)ce.selectCodigoCliente(chavePrimaria,jtfCep.getText());
+            TipoEndereco tendereco = (TipoEndereco) jcbTipoEndereco.getSelectedItem();
+            Endereco enderecoVelho = (Endereco) ce.selectCodigoCliente(chavePrimaria, tendereco.getCodigo());
             Endereco enderecoNovo =(Endereco) atualizarEndereco(chavePrimaria,enderecoVelho.getCodigo());
             ce.update(enderecoNovo);
             popularChave(Integer.toString(chavePrimaria));
